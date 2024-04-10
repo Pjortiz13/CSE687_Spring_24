@@ -41,37 +41,54 @@ MapClass::~MapClass()
 	
 	// nothing to do at this time
 }
+
 //Mapfunction to retrieve file and call additional function export
+//request user input for filepath to open file
 void MapClass::MapFunction(string& fileNameInput, string& rawData)
 {
-		cout << "Please enter the full file path to your text file(.txt). Please use \\ instead of \ for the directory navigation: ";
+		cout << "Please enter the full file path to your text file(.txt). Please use '\\\\' instead of '\\' when entering the filepath: "; 
 		cin >> fileNameInput; // User inputs file name 
 		ifstream fileInput(fileNameInput); //retriev/open file via user input, ref pg 793 C++SL
-		cout << " Processing Raw Data from file (removing puncuations,captalization, and adding, word + , 1\n";
+		cout << "\n Processing Raw Data from file: "<< fileNameInput << "\n(removing white space, puncuations, captalization, and adding, word + , 1).\n"<<"Words now have been manipulated: ";
 
-
-		//begin to tokenize the raw data
-
-		//getline used to read line by line function reads all characters until the end of file is reached. while loop to go through each line
+		//vector used to store processed data
+		vector<string>wordTokens;
+	
+		//getline used to read line by line function reads all characters until the end of file is reached. while loop to go through each line o file 
 		while (getline(fileInput, rawData)) { //getline pgs 677,713,769
 			stringstream ssLines(rawData); //make and object for each line of the file
-
-			//get words via stringstream for each line
-			string words;
+			
+		
+			
 			while (ssLines >> words) {
 				
 				//get total word count
 				wordsCounted++;
-				//remove white space *working
+				//remove white space 
+				words.erase(remove_if(words.begin(), words.end(), isspace),words.end()); //remove if pg 576 C++SL, & https://stackoverflow.com/questions/83439/remove-spaces-from-stdstring-in-c 
 				
-				//remove puncuations *working
-				
-				//remove capitalizations *working
-				//replace words with words + ,1 *working
+				//remove puncuations 
+				words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
 
-				cout << words << " "; //allow user to see new set of words
+				//remove capitalizations aka lowercase all letters  ref pg 225, 564-565 C++SL, is/to functions ref pg 896 
+				transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); }); //formatting reference pg 686
+
+				//add + ,1 *via .insert / length() used to place position at end of word see685 C++SL & *remove \\ from line 84 to apply. Don't believe it's needed for phase 1
+				//words.insert(words.length(), " ,1" );
+				
+
+				//tokenize data via adding each word to vector 'wordTokens'
+				wordTokens.push_back(words);
+
+				//allow user to see new set of words
+				cout << words<<" "; 
+
 
 			}
+			cout << "\nManipulated words added to vector 'wordTokens' :";
+			//display vector Wordtokenes to user 
+			for (auto list : wordTokens)
+				cout <<"\n"<< list;
 		}
 
 		//close file after data has been utilized
