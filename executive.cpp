@@ -12,7 +12,7 @@
 
 
 
-#include "MapClass.h"
+#include "map.h"
 #include <string>
 #include <map>
 #include <fstream> //file stream lib
