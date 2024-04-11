@@ -8,7 +8,7 @@
 // This class contains the public method map that accepts a key and value
 // This function will tokenize the value into distinc t words (remove everything but the word, no puncation) 
 //This function will also make a second function called export()
-#include "MapClass.h"
+#include "map.h"
 #include <string>
 #include <map>
 #include <fstream> //file stream lib
