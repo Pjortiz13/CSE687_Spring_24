@@ -9,8 +9,8 @@
 // This function will tokenize the value into distinc t words (remove everything but the word, no puncation) 
 //This function will also make a second function called export()
 
-#ifndef MAPCLASS_H
-#define MAPCLASS_H
+#ifndef MAP_H
+#define MAP_H
 
 #include <string>
 #include <map>
