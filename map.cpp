@@ -60,38 +60,30 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 		
 		while (getline(fileInput, rawData)) { 
 			stringstream ssLines(rawData); 
-
-		
-		
-			
 			while (ssLines >> words) {
-				
-				
-				wordsCounted++;
-				
-				words.erase(remove_if(words.begin(), words.end(), isspace),words.end()); 
-				 
-				words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
-
-				
-				transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); });
-				
-				words.insert(0, "\"");
-				words.insert(words.length(), "\"" );
-												
-				wordTokens.insert(make_pair(words, wordTokens[words]++));
-
-				
-				cout << words<<" "; 
+		
+		
+			wordsCounted++;
+		
+			words.erase(remove_if(words.begin(), words.end(), isspace),words.end()); 
+		
+			words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
 
 
+			transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); }); 
+			words.insert(0, "(\"");
+			words.insert(words.length(), "\", " );
+			wordTokens.insert(make_pair(words, wordTokens[words]++));
+			std::cout << std::endl;
 			}
-			cout << "\nManipulated words added to map 'wordTokens' :\n";
-
-			
-			for (auto wordList : wordTokens)
-				cout << "\n  (" << wordList.first << """, [" << wordList.second << "]),";
-		}
+	
+	cout << "Manipulated words added to map 'wordTokens' :\n";
+	
+	//display map Wordtokenes to user 
+	for (auto wordList : wordTokens)
+		cout << "\n" << wordList.first << "[" << wordList.second << "])";
+	
+}
 
 		
 		fileInput.close();
