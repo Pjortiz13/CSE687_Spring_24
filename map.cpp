@@ -69,8 +69,7 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 				
 				wordsCounted++;
 				
-				words.erase(remove_if(words.begin(), words.end(), isspace),words.end()); //remove if pg 576 C++SL, & https://stackoverflow.com/questions/83439/remove-spaces-from-stdstring-in-c 
-				
+				words.erase(remove_if(words.begin(), words.end(), isspace),words.end()); 
 				 
 				words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
 
