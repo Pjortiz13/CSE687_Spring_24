@@ -21,23 +21,23 @@
 #include <string>
 #include <vector>
 #include <inttypes.h>
+#include <fstream>
 #include <unordered_map>
+#include "fileManagement.h"
 
 class Reduce { 
 public:
-    // Constructor
-    Reduce(std::string tmp, std::string out, std::string mapRes);
+    // constructor of the class
+    Reduce(std::string outputDir); 
 
-    // Sort
-    bool Sort();
+    //reduce method that takes a string and a vector of integers as an arguement
+	bool reduce(std::string word, std::vector<int> occurences); 
+	bool Export(std::string key, int reducedValue);
+	void start();
+	void end();
 
-    // Reduce
-    void reduce();
 private:
     // Any method of the class can access these members
-    std::string mTmp;
-    std::string mOut;
-    std::string mMapRes;
-    static constexpr char mSortRes[] = "sort_res.txt";
-    static constexpr char mReduceRes[] = "reduce_res.txt";
+	FileManager fileWriter;
+	std::string outputDir = "";
 };
