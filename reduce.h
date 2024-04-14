@@ -27,17 +27,25 @@
 
 class Reduce { 
 public:
-    // constructor of the class
+    // constructor initializes the reduce object with a specified output directory
     Reduce(std::string outputDir); 
 
-    //reduce method that takes a string and a vector of integers as an arguement
-	bool reduce(std::string word, std::vector<int> occurences); 
-	bool Export(std::string key, int reducedValue);
-	void start();
-	void end();
+    // reduce fucntion processes a word and its occurrences to compute a reduced value
+    bool reduce(std::string word, std::vector<int> occurrences); 
+
+    // export funciton writes the reduced key-value pair to the output file
+    bool Export(std::string key, int reducedValue);
+
+    // start function preps the environment before reducing (e.g., opens output file)
+    void start();
+
+    // end function finalizes the reducing process (e.g., closes the output file)
+    void end();
 
 private:
-    // Any method of the class can access these members
-	FileManager fileWriter;
-	std::string outputDir = "";
+    // fileMangaer object to handle file writing operations
+    fileManager fileWriter;
+
+    // output directory path where the reduced results are stored
+    std::string outputDir = "";
 };
