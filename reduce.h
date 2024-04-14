@@ -43,8 +43,8 @@ public:
     void end();
 
 private:
-    // fileMangaer object to handle file writing operations
-    fileManager fileWriter;
+    // fileManagement object to handle file writing operations
+    fileManagement fileWriter;
 
     // output directory path where the reduced results are stored
     std::string outputDir = "";
