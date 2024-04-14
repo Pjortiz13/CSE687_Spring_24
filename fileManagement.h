@@ -13,11 +13,12 @@ such as opening, writing, reading, and deleting files.
 
 */
 
-
-
 #include <fstream>
 #include <string>
 #include <filesystem>
+#include <vector>
+#include <inttypes.h>
+#include <unordered_map>
 
 #pragma once
 
@@ -46,6 +47,12 @@ public:
 
     // checks if a directory exists at the given path.
     static bool directoryExists(const std::string& dirPath);
+
+    static std::unordered_map<std::string, uint64_t> ReadMapFromFile(std::string filepath); 
+    static bool WriteMapToFile(std::unordered_map<std::string, uint64_t> map, std::string filepath);
+    static bool WriteSortMapToFile(std::unordered_map<std::string, std::vector<uint64_t>> map, std::string filepath);
+    static std::unordered_map<std::string, std::vector<uint64_t>> ReadSortMapFromFile(std::string filepath);
+    static bool CreateEmptyFileInDir(std::string dir, std::string filename);
 
 private:
     std::fstream file;  // File stream object used for file operations.
