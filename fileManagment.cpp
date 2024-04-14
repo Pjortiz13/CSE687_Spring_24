@@ -67,22 +67,28 @@ bool fileManagement::directoryExists(const std::string& dirPath)
     return std::filesystem::is_directory(path);
 }
 
+
 std::unordered_map<std::string, uint64_t> fileManagement::ReadMapFromFile(std::string filepath) {
+    // TODO: (Pedro) Implement
     return {}; // Instantiate an empty unordered map
 }
 
 bool fileManagement::WriteMapToFile(std::unordered_map<std::string, uint64_t> map, std::string filepath) {
+    // TODO: (Pedro) Implement
     return true;
 }
 
 bool fileManagement::WriteSortMapToFile(std::unordered_map<std::string, std::vector<uint64_t>> map, std::string filepath) {
+    // TODO: (Pedro) Implement
     return true;
 }
 
 std::unordered_map<std::string, std::vector<uint64_t>> fileManagement::ReadSortMapFromFile(std::string filepath) {
+    // TODO: (Pedro) Implement
     return {};
 }
 
 bool fileManagement::CreateEmptyFileInDir(std::string dir, std::string filename){
+    // TODO: (Pedro) Implement
     return true;
 }

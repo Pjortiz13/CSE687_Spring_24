@@ -17,6 +17,7 @@
 */
 
 #include "reduce.h"
+#include "fileManagement.h"
 #include <iostream>
 #include <filesystem>
 #include <vector>
@@ -32,7 +33,7 @@ bool Reduce::Sort() {
     mapResPath.append(mMapRes);
 
     std::string filepath = mapResPath.string();
-    std::unordered_map<std::string, uint64_t> map = FileManagement::ReadMapFromFile(filepath);
+    std::unordered_map<std::string, uint64_t> map = fileManagement::ReadMapFromFile(filepath);
     std::unordered_map<std::string, std::vector<uint64_t>> sortRes;
 
     for (auto it = map.begin(); it != map.end(); it++) {
@@ -51,7 +52,7 @@ bool Reduce::Sort() {
     sortResPath.append(mSortRes);
 
     filepath = sortResPath.string();
-    return FileManagement::WriteSortMapToFile(sortRes, filepath);
+    return fileManagement::WriteSortMapToFile(sortRes, filepath);
 }
 
 void Reduce::reduce() {
@@ -59,7 +60,7 @@ void Reduce::reduce() {
     sortResPath.append(mSortRes);
 
     std::string filepath = sortResPath.string();
-    std::unordered_map<std::string, std::vector<uint64_t>> map = FileManagement::ReadSortMapFromFile(filepath);
+    std::unordered_map<std::string, std::vector<uint64_t>> map = fileManagement::ReadSortMapFromFile(filepath);
 
     std::unordered_map<std::string, uint64_t> reduceMap;
 
@@ -75,14 +76,14 @@ void Reduce::reduce() {
 
     filepath = reduceResPath.string();
 
-    bool res = FileManagement::WriteMapToFile(reduceMap, filepath);
+    bool res = fileManagement::WriteMapToFile(reduceMap, filepath);
 
     bool statusFile;
 
     if (res) {
-        statusFile = FileManagement::CreateEmptyFileInDir(mOut, "SUCCESS"); 
+        statusFile = fileManagement::CreateEmptyFileInDir(mOut, "SUCCESS"); 
     } else {
-        statusFile = FileManagement::CreateEmptyFileInDir(mOut, "FAILED");
+        statusFile = fileManagement::CreateEmptyFileInDir(mOut, "FAILED");
     }
 
     if (!statusFile) {
