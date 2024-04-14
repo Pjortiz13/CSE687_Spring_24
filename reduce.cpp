@@ -1,4 +1,22 @@
-#include <reduce.h>
+/*  Group X 
+    Joseph Laible
+    Pedro Ortiz
+    Vimal Ramnarain
+    
+    CSE 687 - OOD in C++
+
+    --- Project Phase 1 ---
+    ----- 04/08/2024 -----
+    
+    This header file for the Reduce class 
+    contains function declarations that take 
+    a vector of intermediate key-value pairs 
+    from the Map class and then creates an 
+    output map with keys representing unique 
+    words and values representing their counts
+*/
+
+#include "reduce.h"
 #include <iostream>
 #include <filesystem>
 #include <vector>
