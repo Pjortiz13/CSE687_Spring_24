@@ -8,7 +8,7 @@
     --- Project Phase 1 ---
     ----- 04/08/2024 -----
     
-    This header file for the Reduce class 
+    This file for the Reduce class 
     contains function declarations that take 
     a vector of intermediate key-value pairs 
     from the Map class and then creates an 
