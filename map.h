@@ -46,7 +46,7 @@ public:
 	//map function
 	void MapFunction(string& fileNameInput, string& rawData);
 	//export function
-	void ExportFunction(string& fileNameOutput, string& rawData);
+	void ExportFunction(string& key, int value);
 
 	//Vitrtual function get file name to be used with every class and derivative 
 
