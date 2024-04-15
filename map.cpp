@@ -49,68 +49,81 @@ MapClass::~MapClass()
 //While loop from lines 66-85 will erase white space and punctions of words. Additionally insert “” around words and insert ,1 for each word occurrence. 
 void MapClass::MapFunction(string& fileNameInput, string& rawData)
 {
-		cout << "Please enter the full file path to your text file(.txt). Please use '\\\\' instead of '\\' when entering the filepath: "; 
-		cin >> fileNameInput; 
-		ifstream fileInput(fileNameInput);
-		cout << "\n Processing Raw Data from file: "<< fileNameInput << "\n(removing white space, puncuations, captalization, and adding, word + , 1).\n"<<"Words now have been manipulated: ";
+	cout << "Please enter the full file path to your text file(.txt). Please use '\\\\' instead of '\\' when entering the filepath: ";
+	cin >> fileNameInput;
+	cout << "\n Please enter filepath for output file: ";
+	cin >> fileNameOutput;
+	ifstream fileInput(fileNameInput);
+	cout << "\n Processing Raw Data from file: " << fileNameInput << "\n(removing white space, puncuations, captalization, and adding, word + , 1).\n" << "Words now have been manipulated: ";
 
-		
-		map<string,double>wordTokens;
+
+	map<string, double>wordTokens;
 	
-		
-		while (getline(fileInput, rawData)) { 
-			stringstream ssLines(rawData); 
-			while (ssLines >> words) {
-		
-		
+
+
+	while (getline(fileInput, rawData)) {
+		stringstream ssLines(rawData);
+		while (ssLines >> words) {
+
+
 			wordsCounted++;
-		
-			words.erase(remove_if(words.begin(), words.end(), isspace),words.end()); 
-		
+
+			words.erase(remove_if(words.begin(), words.end(), isspace), words.end());
+
 			words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
 
-
-			transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); }); 
+			transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); });
 			words.insert(0, "(\"");
-			words.insert(words.length(), "\", " );
+
+			words.insert(words.length(), "\", ");
+			
 			wordTokens.insert(make_pair(words, wordTokens[words]++));
-			std::cout << std::endl;
-			}
+			ExportFunction(words, wordTokens[words]++);
+			
 	
-	cout << "Manipulated words added to map 'wordTokens' :\n";
-	
-	//display map Wordtokenes to user 
-	for (auto wordList : wordTokens)
-		cout << "\n" << wordList.first << "[" << wordList.second << "])";
-	
-}
-
+		}
 		
-		fileInput.close();
 
-		cout << "\n\nMapfunciton completed on file: " << fileNameInput; 
+		cout << "\nManipulated words added to map 'wordTokens' :\n";
 
-		cout << "\n\nNumber of words in file:   " << wordsCounted;  
+		//display map Wordtokenes to user 
+		for (auto& wordList : wordTokens) {
+			cout << "\n" << wordList.first << "[" << wordList.second << "])";
+			
+		}
+		
+	
 
+	}
 
+	fileInput.close();
+	
 
+	cout << "\n\nMapfunciton completed on file: " << fileNameInput;
+	cout << "\n\nNumber of words in file:   " << wordsCounted;
+	cout << "\n\nWriting map 'wordTokens to file:   " << fileNameOutput;
+	cout << "\nWriting completed";
 }
 
+//ExportFunction will write a key (words) from map function, and value of 1, (for each occurence of words)
+//written to user selected output file (fileNameOutput)
+void MapClass::ExportFunction(string& key, int value)
+{
+	
+	tuple<string, int>wordsTuple(key, value);
+	ofstream fileOutput(fileNameOutput,ios::app);
+	
+	if (fileOutput.is_open()) {
+		
+		fileOutput << get<0>(wordsTuple) << "[";
+		for (int i = 0; i < value; ++i) {
+			fileOutput << 1 << ",";
+		}
+		fileOutput << "])\n";
+		fileOutput.close();
+	}
+}
 
-//void MapClass::ExportFunction(string& fileNameOutput, string& rawData)
-//{
-	//cout << "Please enter the full file path to your text file(.txt). Please use \\ instead of \ for the directory navigation: ";
-	//cin >> fileNameInput; // User inputs file name 
-	//ifstream fileInput(fileNameInput); //retriev file via user input, ref pg 793 C++SL
-
-
-	//
-
-
-
-
-
-//}
 
 
 
