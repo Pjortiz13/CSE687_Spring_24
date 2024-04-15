@@ -66,31 +66,17 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 		while (ssLines >> words) {
 
 
-			wordsCounted++;
-
-			words.erase(remove_if(words.begin(), words.end(), isspace), words.end());
-
-			words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
-
-			transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); });
-			words.insert(0, "(\"");
-
-			words.insert(words.length(), "\", ");
-			
-			wordTokens.insert(make_pair(words, wordTokens[words]++));
-			ExportFunction(words, wordTokens[words]++);
+		wordsCounted++;
+		words.erase(remove_if(words.begin(), words.end(), isspace), words.end());
+		words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
+		transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); });
+		wordTokens.insert(make_pair(words, wordTokens[words]++));
+		ExportFunction(words, 1);
 			
 	
 		}
 		
-
-		cout << "\nManipulated words added to map 'wordTokens' :\n";
-
-		//display map Wordtokenes to user 
-		for (auto& wordList : wordTokens) {
-			cout << "\n" << wordList.first << "[" << wordList.second << "])";
-			
-		}
+		
 		
 	
 
@@ -112,18 +98,11 @@ void MapClass::ExportFunction(string& key, int value)
 	
 	tuple<string, int>wordsTuple(key, value);
 	ofstream fileOutput(fileNameOutput,ios::app);
-	
-	if (fileOutput.is_open()) {
-		
-		fileOutput << get<0>(wordsTuple) << "[";
-		for (int i = 0; i < value; ++i) {
-			fileOutput << 1 << ",";
-		}
-		fileOutput << "])\n";
+	if (fileOutput.is_open()) {	
+		fileOutput << "(\"" << get<0>(wordsTuple) << "\", " << get<1>(wordsTuple) << "), ";
 		fileOutput.close();
 	}
 }
-
 
 
 
