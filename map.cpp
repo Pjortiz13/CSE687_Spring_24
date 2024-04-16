@@ -91,17 +91,34 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 	cout << "\nWriting completed";
 }
 
+
 //ExportFunction will write a key (words) from map function, and value of 1, (for each occurence of words)
-//written to user selected output file (fileNameOutput)
+//create tuples 'wordTuple' from mapFunction of key(words),value(1)
+//creates a vector to store tuples
+//sets buffer size to x10 tuples of vector buffer
+//writes output to user selected file via for loop on vector buffer
+//add buffer to set touple amount
+
 void MapClass::ExportFunction(string& key, int value)
 {
 	
 	tuple<string, int>wordsTuple(key, value);
-	ofstream fileOutput(fileNameOutput,ios::app);
-	if (fileOutput.is_open()) {	
-		fileOutput << "(\"" << get<0>(wordsTuple) << "\", " << get<1>(wordsTuple) << "), ";
-		fileOutput.close();
+	static vector<tuple<string, int>> buffer; 
+	const size_t buffer_size = 1000; 
+	buffer.push_back(wordsTuple);
+
+	if (buffer.size() >= buffer_size) { 
+		ofstream fileOutput(fileNameOutput, ios::app); 
+		if (fileOutput.is_open()) {
+			for (const auto& tuple : buffer) { 
+				fileOutput << "(\"" << get<0>(tuple) << "\", " << get<1>(tuple) << "), ";
+			}
+
+			fileOutput.close(); 
+		}
+		buffer.clear(); 
 	}
+	
 }
 
 
