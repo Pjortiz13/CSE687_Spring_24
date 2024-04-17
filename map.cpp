@@ -8,22 +8,22 @@
 // This class contains the public method map that accepts a key and value
 // This function will tokenize the value into distinc t words (remove everything but the word, no puncation) 
 //This function will also make a second function called export()
-#include "map.h"
+#include "MapClass.h"
+#include "fileManagement.h"
 #include <string>
 #include <map>
+#include <unordered_map>
 #include <fstream> //file stream lib
 #include <iostream> //io stream lib
 #include <cstdlib>
 #include <sstream>//stringstream lib
+#include <vector>
+#include <cstring>//prototype for strtok, ref c++ 928
+#include <algorithm>//needed for 'for_each'
+#include<tuple>
+#include <algorithm>
 
-using std::cout;
-using std::cin;
-using std::endl;
-using std::ofstream;
-using std::ifstream;
-using std::getline;
-using std::fclose;
-using std::stringstream;//ref page 805
+
 string lines;//variable for lines of file
 string words;//varible for words in each line
 
@@ -43,80 +43,81 @@ MapClass::~MapClass()
 	// nothing to do at this time
 }
 
+
 //mapFunction will retrieve user input file via cmd line
 //function will use getline and stringstream to make an object of each line of file
 //Will use a while loop made of sslines to tokenize each word and place into mapwordTokens
-//While loop from lines 66-85 will erase white space and punctions of words. Additionally insert “” around words and insert ,1 for each word occurrence. 
+//While loop from lines 66-85 will erase white space and punctions of words.
 void MapClass::MapFunction(string& fileNameInput, string& rawData)
 {
-	cout << "Please enter the full file path to your text file(.txt). Please use '\\\\' instead of '\\' when entering the filepath: ";
-	cin >> fileNameInput;
-	cout << "\n Please enter filepath for output file: ";
-	cin >> fileNameOutput;
+	std::cout << "Please enter the full file path to your text file(.txt). Please use '\\\\' instead of '\\' when entering the filepath: ";
+	std::cin >> fileNameInput;
+	std::cout << "\n Please enter filepath for output file: ";
+	std::cin >> fileNameOutput;
 	ifstream fileInput(fileNameInput);
-	cout << "\n Processing Raw Data from file: " << fileNameInput << "\n(removing white space, puncuations, captalization, and adding, word + , 1).\n" << "Words now have been manipulated: ";
+	std::cout << "\n Processing Raw Data from file: " << fileNameInput << "\n(removing white space, puncuations, captalization, and adding, word + , 1).\n" << "Words now have been manipulated: ";
 
 
-	map<string, double>wordTokens;
+	std::unordered_map<string, double>wordTokens;
 	
 
 
 	while (getline(fileInput, rawData)) {
-		stringstream ssLines(rawData);
+		std::stringstream ssLines(rawData);
 		while (ssLines >> words) {
-
-
-		wordsCounted++;
-		words.erase(remove_if(words.begin(), words.end(), isspace), words.end());
-		words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
-		transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); });
-		wordTokens.insert(make_pair(words, wordTokens[words]++));
-		ExportFunction(words, 1);
-			
-	
+			wordsCounted++;
+			words.erase(remove_if(words.begin(), words.end(), isspace), words.end());
+			words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
+			transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); });
+			wordTokens.insert(make_pair(words, wordTokens[words]++));
+			ExportFunction(words, 1);		
 		}
-		
-		
-		
-	
+
 
 	}
 
 	fileInput.close();
 	
+	
 
-	cout << "\n\nMapfunciton completed on file: " << fileNameInput;
-	cout << "\n\nNumber of words in file:   " << wordsCounted;
-	cout << "\n\nWriting map 'wordTokens to file:   " << fileNameOutput;
-	cout << "\nWriting completed";
+	std::cout << "\n\nMapfunciton completed on file: " << fileNameInput;
+	std::cout << "\n\nNumber of words in file:   " << wordsCounted;
+	std::cout << "\n\nWriting to file:   " << fileNameOutput;
+	std::cout << "\nWriting completed";
+
+
+
+	
+
+
+
 }
-
 
 //ExportFunction will write a key (words) from map function, and value of 1, (for each occurence of words)
 //create tuples 'wordTuple' from mapFunction of key(words),value(1)
 //creates a vector to store tuples
-//sets buffer size to x10 tuples of vector buffer
+//sets buffer size to 1000 (adjustable)
 //writes output to user selected file via for loop on vector buffer
 //add buffer to set touple amount
 
 void MapClass::ExportFunction(string& key, int value)
 {
 	
-	tuple<string, int>wordsTuple(key, value);
-	static vector<tuple<string, int>> buffer; 
-	const size_t buffer_size = 1000; 
-	buffer.push_back(wordsTuple);
+	std::tuple<string, int>wordsTuple(key, value);//create tuple 'wordsTuple'
+	static std::vector<std::tuple<string, int>> buffer; // create  vector 'buffer'
+	const size_t buffer_size = 1000; //set size of buffer to be 1000bytes?/characters 
+	buffer.push_back(wordsTuple); // Add tuples to buffer
 
-	if (buffer.size() >= buffer_size) { 
-		ofstream fileOutput(fileNameOutput, ios::app); 
+	if (buffer.size() >= buffer_size) { //if buffer is not full
+		std::ofstream fileOutput(fileNameOutput, std::ios::app); // Open the file	
 		if (fileOutput.is_open()) {
-			for (const auto& tuple : buffer) { 
-				fileOutput << "(\"" << get<0>(tuple) << "\", " << get<1>(tuple) << "), ";
+			for (const auto& tuple : buffer) { //write each tuple in the buffer with added syntax
+				fileOutput << "(\"" << std::get<0>(tuple) << "\", " << std::get<1>(tuple) << "), ";
 			}
 
-			fileOutput.close(); 
+			fileOutput.close(); // Close the file
 		}
-		buffer.clear(); 
+		buffer.clear(); // Clear the buffer 
 	}
 	
 }
