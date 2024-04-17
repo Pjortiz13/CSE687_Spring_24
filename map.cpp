@@ -103,21 +103,21 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 void MapClass::ExportFunction(string& key, int value)
 {
 	
-	std::tuple<string, int>wordsTuple(key, value);//create tuple 'wordsTuple'
-	static std::vector<std::tuple<string, int>> buffer; // create  vector 'buffer'
-	const size_t buffer_size = 1000; //set size of buffer to be 1000bytes?/characters 
-	buffer.push_back(wordsTuple); // Add tuples to buffer
+	std::tuple<string, int>wordsTuple(key, value);
+	static std::vector<std::tuple<string, int>> buffer;
+	const size_t buffer_size = 1000; 
+	buffer.push_back(wordsTuple); 
 
-	if (buffer.size() >= buffer_size) { //if buffer is not full
-		std::ofstream fileOutput(fileNameOutput, std::ios::app); // Open the file	
+	if (buffer.size() >= buffer_size) {
+		std::ofstream fileOutput(fileNameOutput, std::ios::app); 	
 		if (fileOutput.is_open()) {
-			for (const auto& tuple : buffer) { //write each tuple in the buffer with added syntax
+			for (const auto& tuple : buffer) { 
 				fileOutput << "(\"" << std::get<0>(tuple) << "\", " << std::get<1>(tuple) << "), ";
 			}
 
-			fileOutput.close(); // Close the file
+			fileOutput.close(); 
 		}
-		buffer.clear(); // Clear the buffer 
+		buffer.clear(); 
 	}
 	
 }
