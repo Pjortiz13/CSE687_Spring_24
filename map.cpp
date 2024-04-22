@@ -1,14 +1,17 @@
-//Group X Joseph I Laible
-// Professor Scott Roueche
-// CSE  687 Object Oriented Design in C++
-// Syracuse University 
-//Project Phase I 
-//04/07/2024
-// This is the imp ".cpp" file  for class MapClass
-// This class contains the public method map that accepts a key and value
-// This function will tokenize the value into distinc t words (remove everything but the word, no puncation) 
-//This function will also make a second function called export()
-#include "MapClass.h"
+/*Group X Joseph I Laible
+ Professor Scott Roueche
+ CSE  687 Object Oriented Design in C++
+ Syracuse University 
+
+Project Phase I 
+04/07/2024
+
+This is the imp ".cpp" file  for class map
+This class contains the public function map that accepts a key and value
+This function will tokenize the value into distinc t words (remove everything but the word, no puncation) 
+This function will also make a second function called export()
+*/
+#include "map.h"
 #include "fileManagement.h"
 #include <string>
 #include <map>
@@ -20,7 +23,7 @@
 #include <vector>
 #include <cstring>//prototype for strtok, ref c++ 928
 #include <algorithm>//needed for 'for_each'
-#include<tuple>
+#include <tuple>
 #include <algorithm>
 
 
@@ -28,7 +31,7 @@ string lines;//variable for lines of file
 string words;//varible for words in each line
 
 // default constructor
-MapClass::MapClass()
+map::map()
 	
 {
 	
@@ -37,18 +40,20 @@ MapClass::MapClass()
 
 
 
-MapClass::~MapClass()
+map::~map()
 {
 	
 	// nothing to do at this time
 }
 
 
-//mapFunction will retrieve user input file via cmd line
-//function will use getline and stringstream to make an object of each line of file
-//Will use a while loop made of sslines to tokenize each word and place into mapwordTokens
-//While loop from lines 66-85 will erase white space and punctions of words.
-void MapClass::MapFunction(string& fileNameInput, string& rawData)
+/* mapFunction will retrieve user input file via cmd line
+function will use getline and stringstream to make an object of each line of file
+Will use a while loop made of sslines to tokenize each word and place into mapwordTokens
+While loop from lines 66-85 will erase white space and punctions of words.
+*/
+
+void map::mapFunction(string& fileNameInput, string& rawData)
 {
 	std::cout << "Please enter the full file path to your text file(.txt). Please use '\\\\' instead of '\\' when entering the filepath: ";
 	std::cin >> fileNameInput;
@@ -80,27 +85,21 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 	
 	
 
-	std::cout << "\n\nMapfunciton completed on file: " << fileNameInput;
+	std::cout << "\n\nmapfunciton completed on file: " << fileNameInput;
 	std::cout << "\n\nNumber of words in file:   " << wordsCounted;
 	std::cout << "\n\nWriting to file:   " << fileNameOutput;
 	std::cout << "\nWriting completed";
-
-
-
-	
-
-
-
 }
 
-//ExportFunction will write a key (words) from map function, and value of 1, (for each occurence of words)
-//create tuples 'wordTuple' from mapFunction of key(words),value(1)
-//creates a vector to store tuples
-//sets buffer size to 1000 (adjustable)
-//writes output to user selected file via for loop on vector buffer
-//add buffer to set touple amount
+/*ExportFunction will write a key (words) from map function, and value of 1, (for each occurence of words)
+create tuples 'wordTuple' from mapFunction of key(words),value(1)
+creates a vector to store tuples
+sets buffer size to 1000 (adjustable)
+writes output to user selected file via for loop on vector buffer
+add buffer to set touple amount
+*/
 
-void MapClass::ExportFunction(string& key, int value)
+void mapClass::ExportFunction(string& key, int value)
 {
 	
 	std::tuple<string, int>wordsTuple(key, value);
@@ -121,13 +120,6 @@ void MapClass::ExportFunction(string& key, int value)
 	}
 	
 }
-
-
-
-
-
-
-
 
 
 
