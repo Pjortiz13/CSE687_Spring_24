@@ -20,9 +20,11 @@ such as opening, writing, reading, and deleting files.
 #include <filesystem>
 
 #pragma once
-
+class MapClass;
 class fileManagement
 {
+  
+    friend class MapClass;
 public:
     fileManagement();  // constructor
 
