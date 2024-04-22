@@ -12,7 +12,7 @@ This function will tokenize the value into distinc t words (remove everything bu
 This function will also make a second function called export()
 */
 
-#include "MapClass.h"
+#include "map.h"
 #include "fileManagement.h"
 #include <string>
 #include <map>
