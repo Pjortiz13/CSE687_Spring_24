@@ -26,6 +26,7 @@ This function will also make a second function called export()
 #include <algorithm>//needed for 'for_each'
 #include<tuple>
 #include <algorithm>
+#include <filesystem>
 
 
 string lines;//variable for lines of file
@@ -41,9 +42,10 @@ MapClass::MapClass()
 
 
 
+
 MapClass::~MapClass()
 {
-	
+
 	// nothing to do at this time
 }
 
@@ -53,36 +55,35 @@ MapClass::~MapClass()
 //Will use a while loop made of sslines to tokenize each word and place into mapwordTokens
 //While loop from lines 66-85 will erase white space and punctions of words.
 void MapClass::MapFunction(string& fileNameInput, string& rawData)
-{
+{ 
+	fileManagement file;
 	std::cout << "Please enter the full file path to your text file(.txt). Please use '\\\\' instead of '\\' when entering the filepath: ";
 	std::cin >> fileNameInput;
 	std::cout << "\n Please enter filepath for output file: ";
 	std::cin >> fileNameOutput;
-	ifstream fileInput(fileNameInput);
+	file.openFile(fileNameInput, std::ios::in);
 	std::cout << "\n Processing Raw Data from file: " << fileNameInput << "\n(removing white space, puncuations, captalization, and adding, word + , 1).\n" << "Words now have been manipulated: ";
 
 
 	std::unordered_map<string, double>wordTokens;
-	
 
 
-	while (getline(fileInput, rawData)) {
+	while (file.readNextBlock(rawData)) {
 		std::stringstream ssLines(rawData);
 		while (ssLines >> words) {
 			wordsCounted++;
 			words.erase(remove_if(words.begin(), words.end(), isspace), words.end());
 			words.erase(remove_if(words.begin(), words.end(), ispunct), words.end());
 			transform(words.cbegin(), words.cend(), words.begin(), [](char c) {return tolower(c); });
-			wordTokens.insert(make_pair(words, wordTokens[words]++));
-			ExportFunction(words, 1);		
+			ExportFunction(words, 1);
 		}
 
 
 	}
 
-	fileInput.close();
-	
-	
+	file.closeFile();
+
+
 
 	std::cout << "\n\nMapfunciton completed on file: " << fileNameInput;
 	std::cout << "\n\nNumber of words in file:   " << wordsCounted;
@@ -91,7 +92,7 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 
 
 
-	
+
 
 
 
@@ -106,24 +107,30 @@ void MapClass::MapFunction(string& fileNameInput, string& rawData)
 
 void MapClass::ExportFunction(string& key, int value)
 {
-	
-	std::tuple<string, int>wordsTuple(key, value);
-	static std::vector<std::tuple<string, int>> buffer;
-	const size_t buffer_size = 1000; 
-	buffer.push_back(wordsTuple); 
+	fileManagement fileO;
+	std::tuple<string, int>wordsTuple(key, value);//create tuple 'wordsTuple'
+	static std::vector<std::tuple<string, int>> buffer; // create  vector 'buffer'
+	const size_t buffer_size = 1000; //set size of buffer to be 1000bytes?/characters 
+	buffer.push_back(wordsTuple); // Add tuples to buffer
 
-	if (buffer.size() >= buffer_size) {
-		std::ofstream fileOutput(fileNameOutput, std::ios::app); 	
-		if (fileOutput.is_open()) {
-			for (const auto& tuple : buffer) { 
-				fileOutput << "(\"" << std::get<0>(tuple) << "\", " << std::get<1>(tuple) << "), ";
+	if (buffer.size() >= buffer_size) { //if buffer is not full
+
+		//std::ofstream fileOutput(fileNameOutput, std::ios::app); // Open the file
+		//fileO.openFile(fileNameOutput, std::ios::app);
+		if (fileO.openFile(fileNameOutput, std::ios::app)) {
+			for (const auto& tuple : buffer) { // write each tuple in the buffer with added syntax
+				std::string outputString = "(\"" + std::get<0>(tuple) + "\", " + std::to_string(std::get<1>(tuple)) + "), ";
+				fileO.writeFile(outputString);
 			}
 
-			fileOutput.close(); 
+			fileO.closeFile(); // Close the file
 		}
-		buffer.clear(); 
+		buffer.clear(); // Clear the buffer 
 	}
-	
+
 }
+
+
+
 
 
