@@ -23,7 +23,7 @@ using std::string;
 using std::ifstream;
 
 
-class MapClass
+class map
 {
 public:
 	//declare public variables 
@@ -37,16 +37,16 @@ public:
 
 
 	// initialization constructor
-	MapClass();
+	map();
 
 
 	// destructor
-	~MapClass();
+	~map();
 
 	//map function
-	void MapFunction(string& fileNameInput, string& rawData);
+	void mapFunction(string& fileNameInput, string& rawData);
 	//export function
-	void ExportFunction(string& key, int value);
+	void exportFunction(string& key, int value);
 
 	//Vitrtual function get file name to be used with every class and derivative 
 
@@ -56,7 +56,7 @@ public:
 
 private:
 
-	std::map<string, string> MappedData ;
+	std::map<string, string> mapData ;
 
 };
 
