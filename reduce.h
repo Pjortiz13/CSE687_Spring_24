@@ -1,52 +1,41 @@
-/*
-reduce.h
-Group X
-Joseph Laible
-Pedro Ortiz
-Vimal Ramnarain 
-Professor Scott Roueche
-CSE  687 Object Oriented Design in C++
-Syracuse University 
+/*  reduce.h
 
-Project Phase I 
-04/22/2024
+    Group X
+    Joseph Laible
+    Pedro Ortiz
+    Vimal Ramnarain 
+
+    Professor Scott Roueche
+    CSE  687 Object Oriented Design in C++
+    Syracuse University 
+
+    --- Project Phase 1 ---
+    ----- 04/22/2024 -----
     
-    This header file for the Reduce class 
-    contains function declarations that take 
-    a vector of intermediate key-value pairs 
-    from the Map class and then creates an 
-    output map with keys representing unique 
-    words and values representing their counts
+    This header file for the Reduce phase contains 
+    the function declarations that takes the
+    intermediate key-value pairs from the Map phase 
+    and creates an output map with keys representing 
+    unique words and values representing their counts
 */
 
 #pragma once
-
 #include <string>
-//#include <vector> // not used in revised version
-//#include <inttypes.h> // not use in revised version
-//#include <unordered_map> // not used in revised version
 
 class Reduce { 
 public:
     // Constructor
-    //simplified to only take one paramter
-    explicit Reduce(const std::string& outputDir); //(std::string tmp, std::string out, std::string mapRes);
+    explicit Reduce(const std::string& outputDir);
     
+    // Starts Reduce Phase
     void start();
-    void reduce();
-    void end();
-    // Sort
-    //bool Sort();
 
-    // Reduce
-    //void reduce();
+    // Contains main reduce function that processes map phase results
+    void reduce();
+
+    // Ends Reduce Phase
+    void end();
+
 private:
    std::string outputDir;
-    /* // Any method of the class can access these members
-    std::string mTmp;
-    std::string mOut;
-    std::string mMapRes;
-    static constexpr char mSortRes[] = "sort_res.txt";
-    static constexpr char mReduceRes[] = "reduce_res.txt";
-    */
 };
