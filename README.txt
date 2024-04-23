@@ -13,11 +13,20 @@ HOW TO RUN:
 
 g++ -o MapReduceProgram executive.cpp workflow.cpp map.cpp reduce.cpp fileManagement.cpp -std=c++17
 
-2. Execute the compiuled program via the commandline using the format below
+2. generate three folders, first folder with the shakespear .txt files named 'testinput', second folder labeled 'testoutput'
+and a third folder named 'testtemp'
+
+**note if a different folder name is wanted changes to the map.cpp and reduce.cpp files are needed
+
+3. Execute the compiuled program via the commandline using the format below
 .\MapReduceProgram "<input directory>" "<output directory>" "<temporary directory>"
 
 replace <input directory> , <output directory> , and <tempoary directory> with the file paths 
 to the resptevice directories
 
-3. once the program has executed sucesffuly within the <output director> the final word count results and a sucess file
+example: 
+
+.\MapReduceProgram "D:\school\2024\Spring 2024\Object Oriented Design\map_reduce_main_working_2\testinput" "D:\school\2024\Spring 2024\Object Oriented Design\map_reduce_main_working_2\testoutput" "D:\school\2024\Spring 2024\Object Oriented Design\map_reduce_main_working_2\testtemp"
+
+4. once the program has executed sucesffuly within the <output director> the final word count results and a sucess file
 will be generated
