@@ -16,15 +16,22 @@ normalizing them,converting to lowercase and removing punctuation, and recording
 frequency of each word. It outputs these word counts to a specified temporary directory file, 
 supporting the mapping phase of a MapReduce workflow by preparing data for subsequent reduction.
 */
-
-#include "map.h"  //keep will be used
-#include <algorithm> //keep will be used, for algorithms like std::transform and std::remove_if
-#include <fstream> //keep will be used for file input/output operations
-#include <iostream> //keep will be used for input and output stream operations, like std::cout
-#include <sstream> //keep will be used for string stream operations, used to tokenize strings
-#include <cctype> //added becuase it will be used for character handling functions, like ::tolower
-#include <vector>//added for creation of vector 'buffer'
-#include <string> //added for additonal syntax on 'outputstring' to out file
+ //keep will be used
+#include "map.h" 
+//keep will be used, for algorithms like std::transform and std::remove_if
+#include <algorithm> 
+//keep will be used for file input/output operations
+#include <fstream> 
+//keep will be used for input and output stream operations, like std::cout
+#include <iostream> 
+//keep will be used for string stream operations, used to tokenize strings
+#include <sstream> 
+//added becuase it will be used for character handling functions, like ::tolower
+#include <cctype> 
+//added for creation of vector 'buffer'
+#include <vector>
+ //added for additonal syntax on 'outputstring' to out file
+#include <string>
 
 // constructor: Initializes a MapClass object with a specified directory for temporary files
 MapClass::MapClass(const std::string& tempD) : tempDir(tempD) {}
@@ -61,7 +68,7 @@ void MapClass::ExportFunction(const std::string& word, int count) {
 	std::tuple<std::string, int>wordsTuple(word, count);
 	// create  vector 'buffer'
 	static std::vector<std::tuple<std::string, int>> buffer; 
-	//set size of buffer to be 1000bytes?/characters 
+	//set size of buffer to be 10 tuples
 	const size_t buffer_size = 10; 
 	// Add tuples 'wordsTuple' to buffer
 	buffer.push_back(wordsTuple); 
@@ -71,9 +78,11 @@ void MapClass::ExportFunction(const std::string& word, int count) {
 	if (buffer.size() >= buffer_size) { 
 		  // check if the file stream is open
    		 if (out.is_open()) {
-			// write each tuple in the buffer with added syntax
+			
 			for (const auto& tuple : buffer) { 
+				//create string 'outputString' to output tuple with better formatting
 				std::string outputString = "(\"" + std::get<0>(tuple) + "\", " + std::to_string(std::get<1>(tuple)) + ") ";
+				// write each tuple in the buffer to the out file with added syntax
 				out << outputString << std::endl;
 			}
     	}
