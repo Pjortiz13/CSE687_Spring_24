@@ -1,14 +1,15 @@
-/*  Vimal Ramnarain
-    Group X 
-    Members:
-    Joseph Laible
-    Pedro Ortiz
-    
-    
-    CSE 687 - OOD in C++
+/*
+reduce.h
+Group X
+Joseph Laible
+Pedro Ortiz
+Vimal Ramnarain 
+Professor Scott Roueche
+CSE  687 Object Oriented Design in C++
+Syracuse University 
 
-    --- Project Phase 1 ---
-    ----- 04/08/2024 -----
+Project Phase I 
+04/22/2024
     
     This header file for the Reduce class 
     contains function declarations that take 
