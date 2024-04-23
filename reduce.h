@@ -21,25 +21,31 @@
 #pragma once
 
 #include <string>
-#include <vector>
-#include <inttypes.h>
-#include <unordered_map>
+//#include <vector> // not used in revised version
+//#include <inttypes.h> // not use in revised version
+//#include <unordered_map> // not used in revised version
 
 class Reduce { 
 public:
     // Constructor
-    Reduce(std::string tmp, std::string out, std::string mapRes);
-
+    //simplified to only take one paramter
+    explicit Reduce(const std::string& outputDir //(std::string tmp, std::string out, std::string mapRes);
+    
+    void start();
+    void reduce();
+    void end();
     // Sort
-    bool Sort();
+    //bool Sort();
 
     // Reduce
-    void reduce();
+    //void reduce();
 private:
-    // Any method of the class can access these members
+   std::string outputDir;
+    /* // Any method of the class can access these members
     std::string mTmp;
     std::string mOut;
     std::string mMapRes;
     static constexpr char mSortRes[] = "sort_res.txt";
     static constexpr char mReduceRes[] = "reduce_res.txt";
+    */
 };
