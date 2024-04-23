@@ -13,22 +13,6 @@ This is the header ".h" file  for class Map
 This class contains the public method map that accepts a key and value
 This function will tokenize the value into distinc t words (remove everything but the word, no puncation) 
 This function will also make a second function called export()
-
-/*Group X
-Joseph Laible
-Pedro Ortiz
-Vimal Ramnarain 
-Professor Scott Roueche
-CSE  687 Object Oriented Design in C++
-Syracuse University 
-
-Project Phase I 
-04/22/2024
-
-This is the header ".h" file  for class Map
-This class contains the public method map that accepts a key and value
-This function will tokenize the value into distinc t words (remove everything but the word, no puncation) 
-This function will also make a second function called export()
 */
 
 #pragma once 
