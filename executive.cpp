@@ -1,11 +1,18 @@
-//Group X Joseph I Laible
-// Professor Scott Roueche
-// CSE  687 Object Oriented Design in C++
-// Syracuse University 
-//Project Phase I 
-//04/07/2024
-// driver file for the Map class in the mapreduce project
+/*
+executive.cpp
+Group X
+Joseph Laible
+Pedro Ortiz
+Vimal Ramnarain 
+Professor Scott Roueche
+CSE  687 Object Oriented Design in C++
+Syracuse University 
 
+Project Phase I 
+04/22/2024
+
+summary: driver file for the Map class in the mapreduce project
+*/
 //orchestrates the MapReduce process
 #include "workFlow.h"
 //#include "map.h"
