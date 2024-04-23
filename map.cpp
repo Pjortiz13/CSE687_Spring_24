@@ -1,11 +1,15 @@
 /*
-Group X Joseph I Laible
+map.cpp
+Group X
+Joseph Laible
+Pedro Ortiz
+Vimal Ramnarain 
 Professor Scott Roueche
 CSE  687 Object Oriented Design in C++
 Syracuse University 
 
 Project Phase I 
-04/07/2024
+04/22/2024
 
 The map.cpp file defines the MapClass which processes text data by tokenizing input strings, 
 normalizing them,converting to lowercase and removing punctuation, and recording the 
