@@ -14,7 +14,7 @@
     
     This source file essentially takes 
     the intermediate key-value pairs from
-    Map phase and output a sorted map 
+    Map phase and outputs a sorted map 
     with keys representing unique words 
     and values representing their counts.
 */
