@@ -18,7 +18,7 @@ supporting the mapping phase of a MapReduce workflow by preparing data for subse
 */
 //included for use of map functions
 #include "map.h" 
-/used, for algorithms like std::transform and std::remove_if
+//used, for algorithms like std::transform and std::remove_if
 #include <algorithm> 
 // used for file input/output operations
 #include <fstream> 
