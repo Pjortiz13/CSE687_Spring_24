@@ -19,7 +19,7 @@
 */
 
 #include "reduce.h"
-//#include "fileManagement.h"
+#include "fileManagement.h"
 #include <iostream>
 // used for file stream ops
 #include <fstream>
