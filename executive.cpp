@@ -15,26 +15,9 @@ summary: driver file for the Map class in the mapreduce project
 */
 //orchestrates the MapReduce process
 #include "workFlow.h"
-//#include "map.h"
-//#include <string>
-//#include <map>
-//#include <fstream> //file stream lib
 
 // in/out operations and for exception handling messages and status
-#include <iostream> //io stream lib
-
-//#include <cstdlib>
-//#include <sstream>//stringstream lib
-//declare public variables 
-//string fileNameInput;
-//string fileNameOutput;
-//string rawData;
-//string outputData;
-//string file;
-//double wordsCounted;
-//string wordsNew;
-//using std::cout;
-//using std::cin;
+#include <iostream> 
 
 // main function checks command line arguments and runs the workflow
 int main(int argc, char* argv[]) {
@@ -58,31 +41,3 @@ int main(int argc, char* argv[]) {
     std::cout << "Workflow completed successfully." << std::endl;
     return 0;
 }
-
-/*//string rawData = "";
-// welcome heading for user:  show what the program is and prompt user input 
-
-	cout << "################################################################\n     Group X Utilizing Map Reduce on  Shakespeare's Works   \n################################################################";
-	cout << "\n This Program will take an input file (.txt) of one of Shakespeare's Works and replace each word with: word, 1 ";
-	cout << "\n################################################################";
-	cout << "\n\n Please enter 1 to begin: ";
-	cin >> userDriver;
-
-
-	if (userDriver == 1) {
-
-		
-		MapClass ObjX;//make object to test imp file
-		ObjX.MapFunction(fileNameInput, rawData);
-
-
-
-
-
-	}
-
-	cin >> userDriver;
-
-}
-
-*/
