@@ -16,21 +16,21 @@ normalizing them,converting to lowercase and removing punctuation, and recording
 frequency of each word. It outputs these word counts to a specified temporary directory file, 
 supporting the mapping phase of a MapReduce workflow by preparing data for subsequent reduction.
 */
- //keep will be used
+//included for use of map functions
 #include "map.h" 
-//keep will be used, for algorithms like std::transform and std::remove_if
+/used, for algorithms like std::transform and std::remove_if
 #include <algorithm> 
-//keep will be used for file input/output operations
+// used for file input/output operations
 #include <fstream> 
-//keep will be used for input and output stream operations, like std::cout
+// used for input and output stream operations, like std::cout
 #include <iostream> 
-//keep will be used for string stream operations, used to tokenize strings
+// used for string stream operations, used to tokenize strings
 #include <sstream> 
-//added becuase it will be used for character handling functions, like ::tolower
+// used for character handling functions, like ::tolower
 #include <cctype> 
 //added for creation of vector 'buffer'
 #include <vector>
- //added for additonal syntax on 'outputstring' to out file
+//added for additonal syntax on 'outputstring' to out file
 #include <string>
 
 // constructor: Initializes a MapClass object with a specified directory for temporary files
@@ -80,7 +80,7 @@ void MapClass::ExportFunction(const std::string& word, int count) {
    		 if (out.is_open()) {
 			
 			for (const auto& tuple : buffer) { 
-				//create string 'outputString' to output tuple with better formatting
+				//create string 'outputString' to output tuples with better formatting
 				std::string outputString = "(\"" + std::get<0>(tuple) + "\", " + std::to_string(std::get<1>(tuple)) + ") ";
 				// write each tuple in the buffer to the out file with added syntax
 				out << outputString << std::endl;
