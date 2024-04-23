@@ -28,7 +28,7 @@ Project Phase I
 //string stream ops
 #include <sstream>
 // managing collection of key values
-#include <unordered_map>
+#include <map>
 //#include <filesystem>
 //#include <vector>
 //namespace fs = std::filesystem;
@@ -59,7 +59,7 @@ void Reduce::reduce() {
     }
 
     // unordered map to count occurrences of each word
-    std::unordered_map<std::string, int> wordCounts;
+    std::map<std::string, int> wordCounts;
     std::string line;
     // reads each line from the input file
     while (getline(inFile, line)) {
@@ -74,7 +74,7 @@ void Reduce::reduce() {
     }
     // writes the accumulated counts to the output file
     for (const auto& pair : wordCounts) {
-        outFile << pair.first << " " << pair.second << std::endl;
+        outFile << pair.first << " " << pair.second <<")"<< std::endl;
     }
     // close both the input and output files
     inFile.close();
