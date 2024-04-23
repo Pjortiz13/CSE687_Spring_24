@@ -29,7 +29,7 @@ class Reduce {
 public:
     // Constructor
     //simplified to only take one paramter
-    explicit Reduce(const std::string& outputDir //(std::string tmp, std::string out, std::string mapRes);
+    explicit Reduce(const std::string& outputDir); //(std::string tmp, std::string out, std::string mapRes);
     
     void start();
     void reduce();
