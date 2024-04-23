@@ -43,7 +43,9 @@ void Reduce::start() {
 // main reduce function where mapping results are processed and summarized
 void Reduce::reduce() {
     // defines the file paths for input and output files
-    std::string inputFile = outputDir + "/../testtemp/map_output.txt";
+    // need to ensure that the folder name is called as shown below and that the map.cpp genereated map_output.txt
+    // name follows as well
+    std::string inputFile = outputDir + "/../testtemp/map_output.txt"; 
     std::string outputFile = outputDir + "/results.txt";
     // open the input and output files for reading and writing respectively
     std::ifstream inFile(inputFile);
