@@ -19,16 +19,81 @@
 */
 
 #include "reduce.h"
-#include "fileManagement.h"
+//#include "fileManagement.h"
 #include <iostream>
-#include <filesystem>
-#include <vector>
-namespace fs = std::filesystem;
+// used for file stream ops
+#include <fstream>
+//string stream ops
+#include <sstream>
+// managing collection of key values
+#include <unordered_map>
+//#include <filesystem>
+//#include <vector>
+//namespace fs = std::filesystem;
 
-// Constructor
-Reduce::Reduce(std::string tmp, std::string out, std::string mapRes) 
-    : mTmp(tmp), mOut(out), mMapRes(mapRes) {}
 
+// Constructor that initializes the output directory for storing results
+Reduce::Reduce(const std::string& outputDir)
+    : outputDir(outputDir) {}
+
+// start function announces the beginning of the reduction process
+void Reduce::start() {
+    std::cout << "Reduction process started." << std::endl;
+}
+// main reduce function where mapping results are processed and summarized
+void Reduce::reduce() {
+    // defines the file paths for input and output files
+    std::string inputFile = outputDir + "/../testtemp/map_output.txt";
+    std::string outputFile = outputDir + "/results.txt";
+    // open the input and output files for reading and writing respectively
+    std::ifstream inFile(inputFile);
+    std::ofstream outFile(outputFile);
+    // checks if the files are properly opened; if not, print error and return
+    if (!inFile.is_open() || !outFile.is_open()) {
+        std::cerr << "Failed to open files." << std::endl;
+        return;
+    }
+
+    // unordered map to count occurrences of each word
+    std::unordered_map<std::string, int> wordCounts;
+    std::string line;
+    // reads each line from the input file
+    while (getline(inFile, line)) {
+        // use string stream to parse the line
+        std::istringstream iss(line);
+        std::string word;
+        int count;
+        // read each word and its count, and accumulate counts in the map
+        while (iss >> word >> count) {
+            wordCounts[word] += count;
+        }
+    }
+    // writes the accumulated counts to the output file
+    for (const auto& pair : wordCounts) {
+        outFile << pair.first << " " << pair.second << std::endl;
+    }
+    // close both the input and output files
+    inFile.close();
+    outFile.close();
+
+    // tries in creating a SUCCESS file to indicate completion
+    if (!fileManagement::CreateEmptyFileInDir(outputDir, "SUCCESS")) {
+        std::cerr << "Failed to create SUCCESS file." << std::endl;
+    } else {
+        std::cout << "Reduction process completed successfully." << std::endl;
+    }
+}
+// end function announces the completion of the reduction process
+void Reduce::end() {
+    std::cout << "Reduction process ended." << std::endl;
+}
+
+
+//
+
+                            //tmp, std::string out, std::string mapRes) 
+    //: mTmp(tmp), mOut(out), mMapRes(mapRes) {}
+/*
 bool Reduce::Sort() {
     // Handle '/' for Linux and Mac and '\'for Windows
     fs::path mapResPath(mTmp);
@@ -56,9 +121,9 @@ bool Reduce::Sort() {
     filepath = sortResPath.string();
     return fileManagement::WriteSortMapToFile(sortRes, filepath);
 }
+*/
 
-void Reduce::reduce() {
-    fs::path sortResPath(mTmp);
+    /*fs::path sortResPath(mTmp);
     sortResPath.append(mSortRes);
 
     std::string filepath = sortResPath.string();
@@ -92,3 +157,4 @@ void Reduce::reduce() {
         std::cout << "Failed to create SUCCESS/FAILED file." << std::endl;
     }
 }
+*/
