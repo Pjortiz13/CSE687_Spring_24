@@ -69,13 +69,13 @@ void MapClass::ExportFunction(const std::string& word, int count) {
 	// create  vector 'buffer'
 	static std::vector<std::tuple<std::string, int>> buffer; 
 	//set size of buffer to be 10 tuples
-	const size_t buffer_size = 10; 
+	const size_t bufferSize = 10; 
 	// Add tuples 'wordsTuple' to buffer
 	buffer.push_back(wordsTuple); 
 	
 
 	//if buffer is not full
-	if (buffer.size() >= buffer_size) { 
+	if (buffer.size() >= bufferSize) { 
 		  // check if the file stream is open
    		 if (out.is_open()) {
 			
