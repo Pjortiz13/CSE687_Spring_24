@@ -22,31 +22,17 @@ Project Phase I
 #pragma once
 
 #include <string>
-//#include <vector> // not used in revised version
-//#include <inttypes.h> // not use in revised version
-//#include <unordered_map> // not used in revised version
 
 class Reduce { 
 public:
     // Constructor
     //simplified to only take one paramter
-    explicit Reduce(const std::string& outputDir); //(std::string tmp, std::string out, std::string mapRes);
+    explicit Reduce(const std::string& outputDir); 
     
     void start();
     void reduce();
     void end();
-    // Sort
-    //bool Sort();
 
-    // Reduce
-    //void reduce();
 private:
    std::string outputDir;
-    /* // Any method of the class can access these members
-    std::string mTmp;
-    std::string mOut;
-    std::string mMapRes;
-    static constexpr char mSortRes[] = "sort_res.txt";
-    static constexpr char mReduceRes[] = "reduce_res.txt";
-    */
 };
