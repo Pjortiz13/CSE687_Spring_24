@@ -29,4 +29,4 @@ example:
 .\MapReduceProgram "D:\school\2024\Spring 2024\Object Oriented Design\map_reduce_main_working_2\testinput" "D:\school\2024\Spring 2024\Object Oriented Design\map_reduce_main_working_2\testoutput" "D:\school\2024\Spring 2024\Object Oriented Design\map_reduce_main_working_2\testtemp"
 
 4. once the program has executed sucesffuly within the <output director> the final word count results and a sucess file
-will be generated
+will be generated. along with a .txt file within the testtemp folder that should hold the intermediate output. 
