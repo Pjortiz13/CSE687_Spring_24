@@ -1,0 +1,9 @@
+﻿  dllmain.cpp
+  reduce.cpp
+C:\Users\Vimal\source\repos\reduceLibrary2\reduceLibrary2\reduce.cpp(49,6): warning C4273: 'reduce': inconsistent dll linkage
+  C:\Users\Vimal\source\repos\reduceLibrary2\reduceLibrary2\reduce.h(30,35):
+  see previous definition of 'reduce'
+  
+  Generating Code...
+     Creating library C:\Users\Vimal\source\repos\reduceLibrary2\x64\Debug\reduceLibrary2.lib and object C:\Users\Vimal\source\repos\reduceLibrary2\x64\Debug\reduceLibrary2.exp
+  reduceLibrary2.vcxproj -> C:\Users\Vimal\source\repos\reduceLibrary2\x64\Debug\reduceLibrary2.dll

@@ -1,0 +1,11 @@
+﻿  map.cpp
+C:\Users\Vimal\source\repos\mapLibrary2\mapLibrary2\map.cpp(46,6): warning C4273: 'map': inconsistent dll linkage
+  C:\Users\Vimal\source\repos\mapLibrary2\mapLibrary2\map.h(20,32):
+  see previous definition of 'map'
+  
+C:\Users\Vimal\source\repos\mapLibrary2\mapLibrary2\map.cpp(50,6): warning C4273: 'export_res': inconsistent dll linkage
+  C:\Users\Vimal\source\repos\mapLibrary2\mapLibrary2\map.h(21,32):
+  see previous definition of 'export_res'
+  
+     Creating library C:\Users\Vimal\source\repos\mapLibrary2\x64\Debug\mapLibrary2.lib and object C:\Users\Vimal\source\repos\mapLibrary2\x64\Debug\mapLibrary2.exp
+  mapLibrary2.vcxproj -> C:\Users\Vimal\source\repos\mapLibrary2\x64\Debug\mapLibrary2.dll
