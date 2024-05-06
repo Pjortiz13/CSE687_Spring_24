@@ -51,7 +51,13 @@ bool execute(funcMap Map, funcReduce Reduce, std::string inputDir,
 
     std::cout << "Reducing process started..." << std::endl;
     Reduce(outputDir.c_str());
-    std::cout << "Reducing process completed." << std::endl;
+    
+    if (!fileManagement::CreateEmptyFileInDir(outputDir, "SUCCESS")) {
+        std::cerr << "Failed to create SUCCESS file." << std::endl;
+    }
+    else {
+        std::cout << "Reducing process completed." << std::endl;
+    }
     return true;
 }
 
