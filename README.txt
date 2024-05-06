@@ -23,7 +23,8 @@ cd C:\..\..\MapReduce\x64\Debug
 
 MapReduce.exe "<input directory>" "<output directory>" "<temporary directory>"
 
-**NOTE: replace <input directory> , <output directory> , and <tempoary directory> with the names of the folders. If using the default names, then use the format below:
+**NOTE: replace <input directory> , <output directory> , and <tempoary directory> with the names of the folders. 
+	If using the default names, then use the format below:
 
 MapReduce.exe "testinput" "testoutput" "testtemp"
 
