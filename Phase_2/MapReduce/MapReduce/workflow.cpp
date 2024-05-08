@@ -1,3 +1,23 @@
+/*
+workflow.cpp
+Group X
+Joseph Laible
+Pedro Ortiz
+Vimal Ramnarain 
+Professor Scott Roueche
+CSE  687 Object Oriented Design in C++
+Syracuse University 
+
+Project Phase II 
+05/08/2024
+
+Summary: workflow.cpp  servers as the driver file and contains the workflow class implementation  that manages the 
+execution of the MapReduce workflow.It links the map and reduce Dlls, establish function pointers, 
+iterates through input files, and ensures proper execution and file handling. 
+
+*/ 
+
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -14,13 +34,16 @@
 typedef void (*funcReduce)(const char*); // Reduce::reduce(outputDir_str);
 typedef void (*funcMap)(const char*, const char*, const char*); // MapClass::MapFunction(filename_str, data_str);
 
+// executes the MapReduce workflow
 bool execute(funcMap Map, funcReduce Reduce, std::string inputDir, 
     std::string tempDir, std::string outputDir) {
     std::cout << "\n...Please Stand By..." << std::endl;
+     // count of processed files
     int countFiles = 0;
 
     std::cout << "Mapping process started..." << std::endl;
-
+    
+     // iterate over each file in the input directory
     for (const auto& entry : std::filesystem::directory_iterator(inputDir)) {
         if (entry.is_regular_file() && entry.path().extension() == ".txt") {
             std::string filepath = entry.path().string();
@@ -39,7 +62,7 @@ bool execute(funcMap Map, funcReduce Reduce, std::string inputDir,
             reader.closeFile();
         }
     }
-
+ 
     if (countFiles == 0) {
         std::cerr << "Error: No text files found in the input directory." << std::endl;
         std::cout << "Mapping process could not be completed." << std::endl;
@@ -54,7 +77,7 @@ bool execute(funcMap Map, funcReduce Reduce, std::string inputDir,
     std::cout << "Reducing process completed." << std::endl;
     return true;
 }
-
+// main function checks command line arguments and runs the workflow
 int main(int argc, char* argv[]) {
     if (argc != 4) {
         std::cerr << "Usage: " << argv[0] << " <inputDir> <outputDir> <tempDir>" << std::endl;
