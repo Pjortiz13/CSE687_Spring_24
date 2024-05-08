@@ -1,4 +1,19 @@
-// dllmain.cpp : Defines the entry point for the DLL application.
+/*
+dllmain.cpp
+Group X
+Joseph Laible
+Pedro Ortiz
+Vimal Ramnarain 
+Professor Scott Roueche
+CSE  687 Object Oriented Design in C++
+Syracuse University 
+
+Project Phase II 
+05/08/2024
+
+dllmain.cpp : Defines the entry point for the DLL application.
+*/ 
+
 #include "framework.h"
 
 BOOL APIENTRY DllMain( HMODULE hModule,
