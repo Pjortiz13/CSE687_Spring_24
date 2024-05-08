@@ -31,8 +31,8 @@ iterates through input files, and ensures proper execution and file handling.
 #include <windows.h>
 #include "fileManagement.h"
 
-typedef void (*funcReduce)(const char*); // Reduce::reduce(outputDir_str);
-typedef void (*funcMap)(const char*, const char*, const char*); // MapClass::MapFunction(filename_str, data_str);
+typedef void (*funcReduce)(const char*);
+typedef void (*funcMap)(const char*, const char*, const char*);
 
 // executes the MapReduce workflow
 bool execute(funcMap Map, funcReduce Reduce, std::string inputDir, 
