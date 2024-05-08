@@ -17,7 +17,6 @@ iterates through input files, and ensures proper execution and file handling.
 
 */ 
 
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -38,12 +37,11 @@ typedef void (*funcMap)(const char*, const char*, const char*);
 bool execute(funcMap Map, funcReduce Reduce, std::string inputDir, 
     std::string tempDir, std::string outputDir) {
     std::cout << "\n...Please Stand By..." << std::endl;
-     // count of processed files
+    // count of processed files
     int countFiles = 0;
 
     std::cout << "Mapping process started..." << std::endl;
-    
-     // iterate over each file in the input directory
+    // iterate over each file in the input directory
     for (const auto& entry : std::filesystem::directory_iterator(inputDir)) {
         if (entry.is_regular_file() && entry.path().extension() == ".txt") {
             std::string filepath = entry.path().string();
@@ -74,8 +72,15 @@ bool execute(funcMap Map, funcReduce Reduce, std::string inputDir,
 
     std::cout << "Reducing process started..." << std::endl;
     Reduce(outputDir.c_str());
-    std::cout << "Reducing process completed." << std::endl;
+    
+    if (!fileManagement::CreateEmptyFileInDir(outputDir, "SUCCESS")) {
+        std::cerr << "Failed to create SUCCESS file." << std::endl;
+    }
+    else {
+        std::cout << "Reducing process completed." << std::endl;
+    }
     return true;
+}
 }
 // main function checks command line arguments and runs the workflow
 int main(int argc, char* argv[]) {
