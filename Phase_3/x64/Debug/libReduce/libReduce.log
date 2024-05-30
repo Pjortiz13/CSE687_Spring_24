@@ -1,0 +1,7 @@
+﻿  dllmain.cpp
+  libReduce.cpp
+  Generating Code...
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1392,5): warning MSB8012: TargetPath(D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libReduce\libReduce.dll) does not match the Linker's OutputFile property value (D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libReduce.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+LINK : warning LNK4044: unrecognized option '/FS'; ignored
+     Creating library D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libReduce\libReduce.lib and object D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libReduce\libReduce.exp
+  libReduce.vcxproj -> D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libReduce\libReduce.dll

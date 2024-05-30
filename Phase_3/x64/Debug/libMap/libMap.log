@@ -1,0 +1,6 @@
+﻿  dllmain.cpp
+  libMap.cpp
+  Generating Code...
+LINK : warning LNK4044: unrecognized option '/FS'; ignored
+     Creating library D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libMap\libMap.lib and object D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libMap\libMap.exp
+  libMap.vcxproj -> D:\school\2024\Spring 2024\Object Oriented Design\phase3\x64\Debug\libMap\libMap.dll
