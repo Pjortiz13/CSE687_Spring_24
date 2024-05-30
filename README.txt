@@ -70,3 +70,33 @@ MapReduce.exe "testinput" "testoutput" "testtemp"
 
 5. Once the program has executed succesfully, the final word count results will be within the <output directory> as well as a .txt file named "SUCCESS". 
 Additionally, a .txt file is generated within the "testtemp" folder that should hold the intermediate output. 
+
+
+Project Phase 3:
+
+In Phase 3, the MapReduce implementation was extended to support multiple mappers and reducers to handle larger datasets and improve performance. The enhancements include the creation of a partition function that splits keys into R buckets, with R being the number of reducer processes.
+
+HOW TO RUN:
+1. Download the Updated Folders:
+
+	a)Ensure you have the latest MapReduce, libMap, and libReduce folders from GitHub.
+2. Directory Setup:
+
+	a) Create three directories:
+		i) testinput for input files.
+		ii) testoutput for final results.
+		iii) testtemp for intermediate files.
+3. Configure Command-Line Arguments in Visual Studio:
+
+	a) Right-click on the MapReduce project.
+	b) Select Properties.
+	c) Navigate to Configuration Properties -> Debugging.
+	d) Set Command Arguments to the paths of the directories created
+		i) i.e. "D:\school\2024\Spring 2024\Object Oriented Design\testinput" "D:\school\2024\Spring 2024\Object 			Oriented Design\testoutput" "D:\school\2024\Spring 2024\Object Oriented Design\testtemp"
+4. Build and run the project
+	a) press 'F5' in visual studio to compiule and ru the program with the arguments specified above
+
+5. Expected Results:
+	a) intermediate output:
+		i) within the testtemp directory should show 4 mappers and 4 reducers files that were from the mapper and 		reduce processes
+		ii) within the testoutput directory should contain 2 files 1 for results.txt and SUCESSS.txt.
