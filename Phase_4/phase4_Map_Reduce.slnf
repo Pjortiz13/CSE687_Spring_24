@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "phase4_Map_Reduce.sln",
+    "projects": [
+      "..\\..\\phase3\\MapReduce\\MapReduce\\MapReduce.vcxproj",
+      "..\\..\\phase3\\Stub\\Stub.vcxproj",
+      "..\\..\\phase3\\controller\\controller.vcxproj",
+      "..\\..\\phase3\\libMap\\libMap\\libMap.vcxproj",
+      "..\\..\\phase3\\libReduce\\libReduce\\libReduce.vcxproj"
+    ]
+  }
+}
