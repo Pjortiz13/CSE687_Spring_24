@@ -1,0 +1,28 @@
+Server is listening on port 12345
+Map process completed
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Received message: reduce
+Reduce process completed
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Received message: reduce
+Reduce process completed
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Received message: reduce
+Reduce process completed
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Received message: reduce
+Reduce process completed
