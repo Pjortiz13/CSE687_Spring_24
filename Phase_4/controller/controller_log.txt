@@ -1,0 +1,12 @@
+Sent command: map to 127.0.0.1:12345
+Sent command: reduce to 127.0.0.1:12345
+Sent command: map to 127.0.0.1:12345
+Sent command: reduce to 127.0.0.1:12345
+Sent command: map to 127.0.0.1:12345
+Sent command: reduce to 127.0.0.1:12345
+Sent command: map to 127.0.0.1:12345
+Sent command: reduce to 127.0.0.1:12345
+Sent command: map to 127.0.0.1:12345
+Sent command: reduce to 127.0.0.1:12345
+Sent command: map to 127.0.0.1:12345
+Sent command: reduce to 127.0.0.1:12345
