@@ -1,0 +1,9 @@
+﻿  fileManagement.cpp
+  workflow.cpp
+D:\school\2024\Spring 2024\Object Oriented Design\phase3\MapReduce\MapReduce\workflow.cpp(1,1): warning C4005: '_WINSOCK_DEPRECATED_NO_WARNINGS': macro redefinition
+  D:\school\2024\Spring 2024\Object Oriented Design\phase3\MapReduce\MapReduce\workflow.cpp(1,1):
+  '_WINSOCK_DEPRECATED_NO_WARNINGS' previously declared on the command line
+  
+  Generating Code...
+  MapReduce.vcxproj -> D:\school\2024\Spring 2024\Object Oriented Design\Phase_4\phase4_Map_Reduce\x64\Debug\MapReduce\MapReduce.exe
+  0 File(s) copied
