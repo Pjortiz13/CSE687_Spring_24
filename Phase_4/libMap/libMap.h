@@ -1,7 +1,5 @@
-#pragma once
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+#ifndef LIBMAP_H
+#define LIBMAP_H
 
 #ifdef LIBMAP_EXPORTS
 #define LIBMAP_API __declspec(dllexport)
@@ -9,4 +7,14 @@
 #define LIBMAP_API __declspec(dllimport)
 #endif
 
-extern "C" LIBMAP_API void map_func(const char* fileName, const char* data, const char* temp, int numReducers);
+#ifdef __cplusplus
+extern "C" {
+#endif
+	// Function declarations
+	LIBMAP_API void __cdecl map_func(const char* fileName, const char* data, const char* temp, int numReducers);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // LIBMAP_H

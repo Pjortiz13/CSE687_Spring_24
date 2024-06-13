@@ -1,6 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
-#define _SCL_SECURE_NO_WARNINGS
-
+// libMap.cpp
 #include "libMap.h"
 #include <string>
 #include <algorithm>
@@ -10,13 +8,23 @@
 #include <cctype>
 #include <unordered_map>
 #include <exception>
+#include <filesystem>
 
-LIBMAP_API void map_func(const char* fileName, const char* data, const char* temp, int numReducers) {
+// Ensure proper function export
+extern "C" LIBMAP_API void __cdecl map_func(const char* fileName, const char* data, const char* temp, int numReducers) {
     try {
-        std::cout << "[DEBUG] Entering map_func for file: " << fileName << std::endl;
+        std::cout << "[DEBUG] Entering map_func for file: " << (fileName ? fileName : "NULL") << std::endl;
 
-        if (numReducers <= 0) {
-            throw std::invalid_argument("Number of reducers must be greater than zero.");
+        if (!fileName || !data || !temp || numReducers <= 0) {
+            throw std::invalid_argument("Invalid arguments provided to map_func.");
+        }
+
+        // Ensure the temporary directory exists
+        if (!std::filesystem::exists(temp)) {
+            if (!std::filesystem::create_directories(temp)) {
+                std::cerr << "[ERROR] Failed to create directory: " << temp << std::endl;
+                return;
+            }
         }
 
         std::istringstream iss(data);
@@ -25,7 +33,7 @@ LIBMAP_API void map_func(const char* fileName, const char* data, const char* tem
 
         while (iss >> word) {
             word.erase(std::remove_if(word.begin(), word.end(), [](unsigned char c) {
-                return !std::isalpha(static_cast<unsigned char>(c)) && !std::isspace(static_cast<unsigned char>(c));
+                return !std::isalpha(static_cast<unsigned char>(c));
                 }), word.end());
 
             std::transform(word.begin(), word.end(), word.begin(), [](unsigned char c) {
@@ -44,9 +52,10 @@ LIBMAP_API void map_func(const char* fileName, const char* data, const char* tem
         }
 
         for (int i = 0; i < numReducers; ++i) {
-            std::ofstream outFile(std::string(temp) + "/mapper_output_" + std::to_string(i) + ".txt", std::ios::app);
+            std::string outputPath = std::string(temp) + "/mapper_output_" + std::to_string(i) + ".txt";
+            std::ofstream outFile(outputPath, std::ios::app);
             if (!outFile.is_open()) {
-                std::cerr << "[ERROR] Failed to open mapper output file for bucket " << i << std::endl;
+                std::cerr << "[ERROR] Failed to open mapper output file for bucket " << i << " at " << outputPath << std::endl;
                 continue;
             }
             for (const auto& pair : reducerBuckets[i]) {
