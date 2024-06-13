@@ -1,0 +1,259 @@
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function.
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function.
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function.
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Heartbeat send failed: 10053
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Received message: reduce
+Failed to load reduce function: 127
+Received message: map_func
+Failed to load map function: 127
+bind failed: 10048
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Received message: map_func
+bind failed: 10048
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10038
+Heartbeat send failed: 10053
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10038
+Heartbeat send failed: 10053
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10038
+Heartbeat send failed: 10053
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
+Server is listening on port 12345
+Received message: COMMAND|MAP|example.txt|4
+Received message: COMMAND|REDUCE|C:/temp|C:/output|0
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Server is listening on port 12345
+Received message: map_func
+Received message: reduce
+Server is listening on port 12345
+Received message: COMMAND|MAP|example.txt|4
+Map process completed.
+Received message: COMMAND|REDUCE|C:/temp|C:/output|0
+Reduce process completed.
+connect failed: 10061
+connect failed: 10061
+Server is listening on port 12345
+Received message: COMMAND|MAP|example.txt|4
+Map process completed.
+Received message: COMMAND|REDUCE|C:/temp|C:/output|0
+Reduce process completed.
+connect failed: 10061
+connect failed: 10061
+Server is listening on port 12345
+Received message: COMMAND|MAP|example.txt|4
+Map process completed.
+Received message: COMMAND|REDUCE|C:/temp|C:/output|0
+Reduce process completed.
+connect failed: 10061
+connect failed: 10061
+Server is listening on port 12345
+Received message: COMMAND|MAP|example.txt|4
+Map process completed.
+Received message: COMMAND|REDUCE|C:/temp|C:/output|0
+Reduce process completed.
+connect failed: 10061
+connect failed: 10061
+Server is listening on port 12345
+Received message: COMMAND|MAP|example.txt|4
+Map process completed.
+Received message: COMMAND|REDUCE|C:/temp|C:/output|0
+Reduce process completed.
+connect failed: 10061
+connect failed: 10061
+Server is listening on port 12345
+Received message: COMMAND|MAP|example.txt|4
+Map process completed.
+Received message: COMMAND|REDUCE|C:/temp|C:/output|0
+Reduce process completed.
+connect failed: 10061
+connect failed: 10061
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038
