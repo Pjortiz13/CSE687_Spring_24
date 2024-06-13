@@ -100,3 +100,37 @@ HOW TO RUN:
 	a) intermediate output:
 		i) within the testtemp directory should show 4 mappers and 4 reducers files that were from the mapper and 		reduce processes
 		ii) within the testoutput directory should contain 2 files 1 for results.txt and SUCESSS.txt.
+
+
+Project Phase 4:
+
+In Phase 4, the MapReduce implementation was reconfigured to support a controller-stub process. This phase was unable to be completed, the intent was to develop a heartbeat stream between stub and controller to coordinate the running of the Map and Reduce processes. This attempt was utilizing sockets to communicate between stub and controller. 
+
+HOW TO RUN:
+1. Download the Updated Folders:
+
+	a)Ensure you have the latest Worfklow,Stub,Controller, MapReduce, libMap, and libReduce folders from GitHub.
+2. Directory Setup:
+
+	a) Create three directories:
+		i) testinput for input files.
+		ii) testoutput for final results.
+		iii) testtemp for intermediate files.
+3. Configure Command-Line Arguments in Visual Studio:
+
+	a) Right-click on the MapReduce project.
+	b) Select Properties.
+	c) Navigate to Configuration Properties -> Debugging.
+	d) Set Command Arguments to the paths of the directories created (example below)
+		i) i.e. "D:\school\2024\Spring 2024\Object Oriented Design\testinput" "D:\school\2024\Spring 2024\ObjectOriented Design\testoutput" "D:\school\2024\Spring 2024\Object Oriented Design\testtemp"
+4. Build and run the project
+	a) press 'F5' in visual studio to compiule and rum the program with the arguments specified above
+	b) To run via command line, please initiate the sequence in the following order:
+		1. Stub.exe
+		2. Controller.exe 
+		3. Mapreduce.exe 
+
+5. Current Results:
+	a) Controller.exe will produce messages confirming the sending and receiving of messages between itself and stub. 
+
+6. Current state: Problem set was unable to be solved, current solution only facilitates heartbeat messages between Stub and controller, there is no initialization of child processes to run the map and reduce process. Continuation of the project should look into the initialization of map and reduce processes based on reception of relevant messages from the controller (-last attempted methodology). 
