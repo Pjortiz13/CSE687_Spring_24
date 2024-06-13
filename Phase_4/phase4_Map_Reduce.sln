@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "controller", "controller\controller.vcxproj", "{138EB52A-5354-457E-BAA4-7A077B05C200}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stub", "Stub\Stub.vcxproj", "{18C4547B-04A4-4C34-ACCC-401A5B8BE78B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{25C72AF6-F144-40CA-8FF3-C70F4597D467} = {25C72AF6-F144-40CA-8FF3-C70F4597D467}
+		{CCB17F30-5DE1-43BF-9B9E-32BCB07D75DA} = {CCB17F30-5DE1-43BF-9B9E-32BCB07D75DA}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MapReduce", "MapReduce\MapReduce.vcxproj", "{303D1A54-8A59-4876-854C-FA7FB7E492FA}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -14,6 +18,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MapReduce", "MapReduce\MapR
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libReduce", "libReduce\libReduce.vcxproj", "{25C72AF6-F144-40CA-8FF3-C70F4597D467}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CCB17F30-5DE1-43BF-9B9E-32BCB07D75DA} = {CCB17F30-5DE1-43BF-9B9E-32BCB07D75DA}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libMap", "libMap\libMap.vcxproj", "{CCB17F30-5DE1-43BF-9B9E-32BCB07D75DA}"
 EndProject
