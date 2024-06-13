@@ -1,3 +1,4 @@
+// libReduce.cpp
 #define _CRT_SECURE_NO_WARNINGS
 #define _SCL_SECURE_NO_WARNINGS
 
@@ -11,7 +12,8 @@
 #include <vector>
 #include <algorithm>
 
-LIBREDUCE_API void reduce(const char* inputFile, const char* outputDir) {
+// Ensure proper function export
+extern "C" LIBREDUCE_API void __cdecl reduce(const char* inputFile, const char* outputDir) {
     std::string inputFileString(inputFile);
     std::string outputDirString(outputDir);
 
@@ -44,13 +46,14 @@ LIBREDUCE_API void reduce(const char* inputFile, const char* outputDir) {
     std::vector<std::pair<std::string, int>> sortedWordCounts(wordCounts.begin(), wordCounts.end());
     std::sort(sortedWordCounts.begin(), sortedWordCounts.end());
 
-    std::ofstream outFile(outputDirString + "/results.txt", std::ios_base::app);
+    std::string outputFilePath = outputDirString + "/results.txt";
+    std::ofstream outFile(outputFilePath, std::ios_base::app);
     if (!outFile.is_open()) {
-        std::cerr << "[ERROR] Failed to open output file." << std::endl;
+        std::cerr << "[ERROR] Failed to open output file at " << outputFilePath << std::endl;
         return;
     }
 
-    std::cout << "[DEBUG] Writing results to output file..." << std::endl;
+    std::cout << "[DEBUG] Writing results to output file: " << outputFilePath << std::endl;
     for (const auto& pair : sortedWordCounts) {
         outFile << pair.first << " " << pair.second << std::endl;
         std::cout << "[DEBUG] Wrote word: " << pair.first << ", count: " << pair.second << std::endl;
