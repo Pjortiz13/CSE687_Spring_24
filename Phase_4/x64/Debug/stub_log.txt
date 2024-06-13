@@ -1,0 +1,19 @@
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function.
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Heartbeat send failed: 10053
+Heartbeat send failed: 10053
+bind failed: 10048
+bind failed: 10048
+Server is listening on port 12345
+Received message: map_func
+Map process completed.
+Received message: reduce
+Reduce process completed.
+Heartbeat send failed: 10038
+Heartbeat send failed: 10038

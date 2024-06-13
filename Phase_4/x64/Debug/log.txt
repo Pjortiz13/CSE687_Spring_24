@@ -1,0 +1,141 @@
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Received message: reduce
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Received message: reduce
+Reduce process completed
+Server is listening on port 12345
+Received message: map
+Failed to load map function: 127
+Received message: reduce
+Reduce process completed
+Server is listening on port 12345
+Server is listening on port 12345
+Received message: map_func
+Map process completed
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Server is listening on port 12345
+Server is listening on port 12345
+Received message: map_func
+Map process completed
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Map process completed
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: reduce
+Parsed command: reduce
+Parsed input directory: 
+Parsed temp directory: 
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Parsed command: map_func
+Parsed input directory: 
+Parsed temp directory: 
+Received message: reduce
+Parsed command: reduce
+Parsed input directory: 
+Parsed temp directory: 
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Parsed command: map_func
+Parsed input directory: 
+Parsed temp directory: 
+Received message: reduce
+Parsed command: reduce
+Parsed input directory: 
+Parsed temp directory: 
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: MAP:inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Map process created with arguments: inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: REDUCE:tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Reduce process created with arguments: tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Server is listening on port 12346
+Received message: MAP:inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Map process created with arguments: inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: REDUCE:tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Reduce process created with arguments: tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: MAP:inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Map process created with arguments: inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: REDUCE:tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Reduce process created with arguments: tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: MAP:inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Map process created with arguments: inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: REDUCE:tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Reduce process created with arguments: tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: MAP:inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Map process created with arguments: inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: REDUCE:tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Reduce process created with arguments: tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: MAP:inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Map process created with arguments: inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: REDUCE:tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Reduce process created with arguments: tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: MAP:inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Map process created with arguments: inputDir=C:/path/to/input tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Received message: REDUCE:tempDir=C:/path/to/temp outputDir=C:/path/to/output
+CreateProcess failed (2)
+Reduce process created with arguments: tempDir=C:/path/to/temp outputDir=C:/path/to/output
+Server is listening on port 12345
+Listening for commands...
+Received message: map_func
+Map process completed
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Listening for commands...
+Received message: map_func
+Map process completed
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Listening for commands...
+Server is listening on port 12345
+Listening for commands...
+connect failed with error: 10061
+Server is listening on port 12345
+Listening for commands...
+Server is listening on port 12345
+Listening for commands...
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Server is listening on port 12345
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
+Received message: map_func
+Failed to load map function: 127
+Received message: reduce
+Failed to load reduce function: 127
