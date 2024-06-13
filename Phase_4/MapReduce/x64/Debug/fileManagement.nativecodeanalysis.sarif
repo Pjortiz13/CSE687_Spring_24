@@ -1,0 +1,43 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.38.33133.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/jlaib/documents/syracuse school folder/classes/cse 687 object oriented design/project/phase 4/pjortiz13 cse687_spring_24 main phase_4/mapreduce/filemanagement.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "3a1519ecb892fc37c554574c6b045cd894e6f8c0bcdaf290699d1aa5cbf49079"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/jlaib/documents/syracuse school folder/classes/cse 687 object oriented design/project/phase 4/pjortiz13 cse687_spring_24 main phase_4/libreduce/filemanagement.h"
+          },
+          "hashes": {
+            "sha-256": "6b1768e57293d06726e9c68a27916be609968ef848584debefcf4ab873cb6e2c"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,31 +1,27 @@
+// workflow.cpp
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <filesystem>
-#include <unordered_map>
 #include <vector>
-#include <sstream>
-#include <iterator>
-#include <windows.h>
-#include <thread>
 #include <future>
+#include <windows.h>
 
 // Typedef for function pointers to map and reduce functions
-typedef void (*funcMap)(const char*, const char*, const char*, int);
-typedef void (*funcReduce)(const char*, const char*);
+typedef void(__cdecl* funcMap)(const char*, const char*, const char*, int);
+typedef void(__cdecl* funcReduce)(const char*, const char*);
 
-// Function to run a mapper process
 void runMapper(const char* mapLibName, const std::string& inputPath, const std::string& tempDir, int numReducers) {
     std::cout << "[DEBUG] Loading map library: " << mapLibName << std::endl;
     HINSTANCE hDLL_map = LoadLibraryA(mapLibName);
-    if (hDLL_map == NULL) {
-        std::cerr << "[ERROR] Map library load failed!" << std::endl;
+    if (!hDLL_map) {
+        std::cerr << "[ERROR] Map library load failed! Error code: " << GetLastError() << std::endl;
         return;
     }
 
     auto Map = (funcMap)GetProcAddress(hDLL_map, "map_func");
-    if (Map == NULL) {
-        std::cerr << "[ERROR] Failed to find map() function!" << std::endl;
+    if (!Map) {
+        std::cerr << "[ERROR] Failed to find map_func() function! Error code: " << GetLastError() << std::endl;
         FreeLibrary(hDLL_map);
         return;
     }
@@ -48,18 +44,17 @@ void runMapper(const char* mapLibName, const std::string& inputPath, const std::
     std::cout << "[DEBUG] Mapper process completed for: " << inputPath << std::endl;
 }
 
-// Function to run a reducer process
 void runReducer(const char* reduceLibName, const std::string& tempDir, const std::string& outputDir, int reducerIndex) {
     std::cout << "[DEBUG] Loading reduce library: " << reduceLibName << std::endl;
     HINSTANCE hDLL_reduce = LoadLibraryA(reduceLibName);
-    if (hDLL_reduce == NULL) {
-        std::cerr << "[ERROR] Reduce library load failed!" << std::endl;
+    if (!hDLL_reduce) {
+        std::cerr << "[ERROR] Reduce library load failed! Error code: " << GetLastError() << std::endl;
         return;
     }
 
     auto Reduce = (funcReduce)GetProcAddress(hDLL_reduce, "reduce");
-    if (Reduce == NULL) {
-        std::cerr << "[ERROR] Failed to find reduce() function!" << std::endl;
+    if (!Reduce) {
+        std::cerr << "[ERROR] Failed to find reduce() function! Error code: " << GetLastError() << std::endl;
         FreeLibrary(hDLL_reduce);
         return;
     }
@@ -92,8 +87,6 @@ void runReducer(const char* reduceLibName, const std::string& tempDir, const std
 }
 
 int main(int argc, char* argv[]) {
-    _CrtSetReportMode(_CRT_ASSERT, 0);
-
     std::cout << "[DEBUG] Starting MapReduce process..." << std::endl;
 
     // Print the number of arguments and the arguments themselves
